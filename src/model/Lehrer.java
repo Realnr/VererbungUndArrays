@@ -1,18 +1,19 @@
 package model;
 
+import java.util.Arrays;
+
 /**
  * Created by Jean-Pierre on 10.05.2017.
  */
-public class Lehrer {
+public class Lehrer extends  Person{
 
     //Attribute
-    private String name;
-    private int alter;
-    private String besoldungsGruppe;
+
+    protected String besoldungsGruppe;
 
     //Referenzen
-    private Kurs[] kurseDesLehrers;
-    private Unterrichtsfach[] faecherDesLehrers;
+
+    protected Unterrichtsfach[] faecherDerLehrkraft;
 
     /**
      * Ein Objekt der Klasse Lehrer wird erstellt.
@@ -21,25 +22,9 @@ public class Lehrer {
      * @param besoldungsGruppe    Gehaltsstufen von Lehrern
      */
     public Lehrer(String name, int alter, String besoldungsGruppe) {
-        this.name = name;
-        this.alter = alter;
+        super(name, alter);
         this.besoldungsGruppe = besoldungsGruppe;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAlter() {
-        return alter;
-    }
-
-    public void setAlter(int alter) {
-        this.alter = alter;
+        faecherDerLehrkraft = new Unterrichtsfach[3];
     }
 
     public String getBesoldungsGruppe() {
@@ -57,9 +42,8 @@ public class Lehrer {
      * Sobald das Array erweitert wurde, muss dem Kurs noch mitgeteilt werden, dass dieser Lehrer den Kurs übernimmt.
      * @param neuerKurs
      */
-    public void addKurs(Kurs neuerKurs){
-        //TODO Hinzufügen eines Kurses, den ein Lehrer unterrichten muss.
-    }
+
+
 
     /**
      * Ein Fach wird der Menge der unterrichtenden Fächer hinzugefügt.
@@ -68,7 +52,11 @@ public class Lehrer {
      * @param neuesFach
      */
     public void addFach(Unterrichtsfach neuesFach){
-        //TODO Hinzufügen eines Faches, das ein Lehrer unterrichten kann.
+        for(int i = 0; i < faecherDerLehrkraft.length; i++){
+            if(faecherDerLehrkraft[i] == null){
+               faecherDerLehrkraft[i] = neuesFach;
+            }
+        }
     }
 
     /**
@@ -76,9 +64,18 @@ public class Lehrer {
      * und gibt diese als String zurück.
      * @return
      */
+    @Override
     public String getInfo(){
-        String info = "";
-        //TODO Kompakte Zeichenkette zu den Informationen einer Lehrkraft - gut lesbar!
+       String info = "";
+//        //TODO Kompakte Zeichenkette zu den Informationen eines Schülers - gut lesbar!
+        info = "Name: " + getName() + "Alter:" + getAlter() + "Besoldungsgruppe:" + getBesoldungsGruppe();
+        for(Kurs i: kurseDerPerson){
+            info += "Kurs" + i;
+        }
+        for(Unterrichtsfach i: faecherDerLehrkraft){
+            info += "Fach" + i;
+        }
         return info;
     }
+
 }

@@ -21,6 +21,7 @@ public class Kurs {
     public Kurs(Unterrichtsfach fach, String kursName){
         this.fach = fach;
         this.kursBezeichnung = kursName;
+        this.schuelerDesKurses = new Schueler[30];
     }
 
     public String getKursBezeichnung() {
@@ -39,6 +40,7 @@ public class Kurs {
         this.lehrkraft = lehrkraft;
     }
 
+
     /**
      * Ein Schüler wird der Menge der Schüler hinzugefügt.
      * Da wir auf der Datenstruktur Array arbeiten und diese eine statische Größe hat, müssen wir tricksen.
@@ -46,7 +48,24 @@ public class Kurs {
      * @param neuerSchueler
      */
     public void addSchueler(Schueler neuerSchueler){
-        //TODO Hinzufügen eines Schülers zu einem Kurs.
+        boolean schonvorhanden = checkSchulerVorhanden(neuerSchueler);
+        for(int i = 0; i < schuelerDesKurses.length; i++){
+            if(schuelerDesKurses[i] == null && schonvorhanden == false ){
+                schuelerDesKurses[i] = neuerSchueler;
+                break;
+            }
+        }
+    }
+    public boolean checkSchulerVorhanden(Schueler neuerSchueler){
+        for(int i = 0; i < schuelerDesKurses.length; i++){
+            if(neuerSchueler == schuelerDesKurses[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+    public void addLehrer(Lehrer lehrer){
+       lehrkraft = lehrer;
     }
 
     /**
@@ -56,7 +75,13 @@ public class Kurs {
      */
     public String getInfo(){
         String info = "";
-        //TODO Kompakte Zeichenkette zu den Informationen eines Kurses - gut lesbar!
+        info = "Bezeichnung des Kurses:"+ " " + getKursBezeichnung() + "\n" + "Fach:" + " " + getFach().getFachBezeichnung() + "\n" + "Lehrkraft:" + " " + getLehrkraft().getName() + "\n";
+        for(Schueler s: schuelerDesKurses){
+           if(s != null){
+                info += "Schueler" + " " + s.getName() + "\n";
+           }
+
+        }
         return info;
     }
 }

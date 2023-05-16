@@ -62,6 +62,7 @@ public class MainController {
             for(int i = 0; i < einPaarSchueler.length; i++){
                 int kursnummer = (int)(Math.random()*einPaarKurse.length);  //Ein zufälliger Kurs wird einem Schüler zugewiesen.
                 einPaarSchueler[i].addKurs(einPaarKurse[kursnummer]);
+                einPaarKurse[kursnummer].addSchueler(einPaarSchueler[i]);
             }
         }
 
@@ -79,8 +80,15 @@ public class MainController {
 
         einPaarLehrer[0].addKurs(einPaarKurse[0]);
         einPaarLehrer[0].addKurs(einPaarKurse[2]);
+
+        einPaarKurse[2].addLehrer(einPaarLehrer[0]);
+        einPaarKurse[0].addLehrer(einPaarLehrer[0]);
+
         einPaarLehrer[1].addKurs(einPaarKurse[1]);
         einPaarLehrer[1].addKurs(einPaarKurse[3]);
+
+        einPaarKurse[1].addLehrer(einPaarLehrer[1]);
+        einPaarKurse[3].addLehrer(einPaarLehrer[1]);
 
         Schulleiter hpBaxter = new Schulleiter("Herr H.P. Baxter", 49, "A3000");
         hpBaxter.addFach(mathematik);
@@ -93,5 +101,4 @@ public class MainController {
         System.out.println("-----------------------------");
         System.out.println(einPaarKurse[0].getInfo());
     }
-
 }

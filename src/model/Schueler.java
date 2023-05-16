@@ -3,14 +3,11 @@ package model;
 /**
  * Created by Jean-Pierre on 10.05.2017.
  */
-public class Schueler {
+public class Schueler extends Person{
 
     //Attribute
-    private String name;
-    private int alter;
 
     //Referenzen
-    private Kurs[] kurseDesSchuelers;
     private Tadel[] tadelDesSchuelers;
 
     /**
@@ -19,25 +16,11 @@ public class Schueler {
      * @param alter
      */
     public Schueler(String name, int alter) {
-        this.name = name;
-        this.alter = alter;
+        super(name,alter);
+        tadelDesSchuelers = new Tadel[3];
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAlter() {
-        return alter;
-    }
-
-    public void setAlter(int alter) {
-        this.alter = alter;
-    }
 
     /**
      * Ein Kurs wird der Menge der Kurse hinzugefügt.
@@ -45,9 +28,9 @@ public class Schueler {
      * Überlegt euch etwas kluges!
      * @param neuerKurs
      */
-    public void addKurs(Kurs neuerKurs){
-        //TODO Hinzufügen eines Kurses, den ein Schüler aufsuchen muss.
-    }
+
+
+
 
     /**
      * Ein Tadel wird der Menge der Tadel hinzugefügt.
@@ -55,8 +38,12 @@ public class Schueler {
      * Überlegt euch etwas kluges!
      * @param neuerTadel
      */
-    private void addTadel(Tadel neuerTadel){
-        //TODO Hinzufügen eins Tadels für den Schüler.
+    public void addTadel(Tadel neuerTadel){
+        for(int i = 0; i < tadelDesSchuelers.length; i++){
+            if(tadelDesSchuelers[i] == null){
+                tadelDesSchuelers[i] = neuerTadel;
+            }
+        }
     }
 
     /**
@@ -66,7 +53,15 @@ public class Schueler {
      */
     public String getInfo(){
         String info = "";
-        //TODO Kompakte Zeichenkette zu den Informationen eines Schülers - gut lesbar!
+//        //TODO Kompakte Zeichenkette zu den Informationen eines Schülers - gut lesbar!
+        info = "Name: " + getName() + "Alter:" + getAlter() + "Besoldungsgruppe:";
+        for(Kurs i: kurseDerPerson){
+            info += "Kurs" + i;
+        }
+        for(Tadel i: tadelDesSchuelers){
+            info += "Fach" + i;
+        }
         return info;
     }
+
 }
