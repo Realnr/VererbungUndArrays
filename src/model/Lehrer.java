@@ -70,10 +70,10 @@ public class Lehrer extends  Person{
 //        //TODO Kompakte Zeichenkette zu den Informationen eines Schülers - gut lesbar!
         info = "Name: " + getName() + "Alter:" + getAlter() + "Besoldungsgruppe:" + getBesoldungsGruppe();
         for(Kurs i: kurseDerPerson){
-            info += "Kurs" + i;
+            info += "Kurse: " + i.getKursBezeichnung() + "\n";
         }
         for(Unterrichtsfach i: faecherDerLehrkraft){
-            info += "Fach" + i;
+            info += "Fach " + i.getFachBezeichnung() + "\n";
         }
         return info;
     }

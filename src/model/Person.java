@@ -46,9 +46,13 @@ public class Person {
     public void addKurs(Kurs neuerKurs, Person p) {
         for (int i = 0; i < kurseDerPerson.length; i++) {
             if (kurseDerPerson[i] == null) {
-                kurseDerPerson[i] = neuerKurs;
+
                 if (p instanceof Schueler ){
-                    neuerKurs.addSchueler((Schueler) p);
+
+                    if(!neuerKurs.checkSchulerVorhanden((Schueler) p)){
+                        kurseDerPerson[i] = neuerKurs;
+                        neuerKurs.addSchueler((Schueler) p);
+                    }
                 } else if (p instanceof Lehrer) {
                     neuerKurs.addLehrer((Lehrer) p);
                 }

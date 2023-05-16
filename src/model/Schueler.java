@@ -54,12 +54,16 @@ public class Schueler extends Person{
     public String getInfo(){
         String info = "";
 //        //TODO Kompakte Zeichenkette zu den Informationen eines Schülers - gut lesbar!
-        info = "Name: " + getName() + "Alter:" + getAlter() + "Besoldungsgruppe:";
+        info = "Name: " + getName() + "Alter: " + getAlter() + "\n";
         for(Kurs i: kurseDerPerson){
-            info += "Kurs" + i;
+            if(i != null) {
+                info += "Kurs" + " " + i.getKursBezeichnung() + "\n";
+            }
         }
         for(Tadel i: tadelDesSchuelers){
-            info += "Fach" + i;
+            if(i != null) {
+                info += "Fach" + " " + i.getTadelBeschreibung() + "\n";
+            }
         }
         return info;
     }

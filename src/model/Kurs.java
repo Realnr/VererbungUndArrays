@@ -48,9 +48,9 @@ public class Kurs {
      * @param neuerSchueler
      */
     public void addSchueler(Schueler neuerSchueler){
-        boolean schonvorhanden = checkSchulerVorhanden(neuerSchueler);
+
         for(int i = 0; i < schuelerDesKurses.length; i++){
-            if(schuelerDesKurses[i] == null && schonvorhanden == false ){
+            if(schuelerDesKurses[i] == null){
                 schuelerDesKurses[i] = neuerSchueler;
                 break;
             }
