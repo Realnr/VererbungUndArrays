@@ -42,6 +42,7 @@ public class Schueler extends Person{
         for(int i = 0; i < tadelDesSchuelers.length; i++){
             if(tadelDesSchuelers[i] == null){
                 tadelDesSchuelers[i] = neuerTadel;
+                break;
             }
         }
     }
@@ -62,7 +63,7 @@ public class Schueler extends Person{
         }
         for(Tadel i: tadelDesSchuelers){
             if(i != null) {
-                info += "Fach" + " " + i.getTadelBeschreibung() + "\n";
+                info += "Tadel:" + " " + i.getTadelBeschreibung() + "\n";
             }
         }
         return info;

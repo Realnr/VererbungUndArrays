@@ -102,7 +102,10 @@ public class MainController {
             System.out.println("-----------------------------");
             System.out.println(k.getInfo());
         }
-        System.out.println("-----------------------------");
-        System.out.println(einPaarSchueler[0].getInfo());
+        for (Schueler s : einPaarSchueler) {
+            System.out.println("-----------------------------");
+            System.out.println(s.getInfo());
+        }
+
     }
 }
