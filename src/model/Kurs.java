@@ -65,7 +65,9 @@ public class Kurs {
         return false;
     }
     public void addLehrer(Lehrer lehrer){
-       lehrkraft = lehrer;
+       if(lehrkraft == null){
+           lehrkraft = lehrer;
+       }
     }
 
     /**
