@@ -53,9 +53,9 @@ public class Schueler extends Person{
      * @return
      */
     public String getInfo(){
-        String info = "";
+        String info;
 //        //TODO Kompakte Zeichenkette zu den Informationen eines Schülers - gut lesbar!
-        info = "Name: " + getName() + "Alter: " + getAlter() + "\n";
+        info = "Name: " + getName() + "\n" + "Alter: " + getAlter() + "\n";
         for(Kurs i: kurseDerPerson){
             if(i != null) {
                 info += "Kurs" + " " + i.getKursBezeichnung() + "\n";

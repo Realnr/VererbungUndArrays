@@ -55,6 +55,7 @@ public class Lehrer extends  Person{
         for(int i = 0; i < faecherDerLehrkraft.length; i++){
             if(faecherDerLehrkraft[i] == null){
                faecherDerLehrkraft[i] = neuesFach;
+               break;
             }
         }
     }
@@ -68,12 +69,16 @@ public class Lehrer extends  Person{
     public String getInfo(){
        String info = "";
 //        //TODO Kompakte Zeichenkette zu den Informationen eines Schülers - gut lesbar!
-        info = "Name: " + getName() + "Alter:" + getAlter() + "Besoldungsgruppe:" + getBesoldungsGruppe();
+        info = "Name: " + getName() + "\n" + "Alter: " + getAlter() + "\n" + "Besoldungsgruppe: " + getBesoldungsGruppe() + "\n";
         for(Kurs i: kurseDerPerson){
-            info += "Kurse: " + i.getKursBezeichnung() + "\n";
+            if(i != null) {
+                info += "Kurse: " + i.getKursBezeichnung() + "\n";
+            }
         }
         for(Unterrichtsfach i: faecherDerLehrkraft){
-            info += "Fach " + i.getFachBezeichnung() + "\n";
+            if(i != null) {
+                info += "Fach " + i.getFachBezeichnung() + "\n";
+            }
         }
         return info;
     }

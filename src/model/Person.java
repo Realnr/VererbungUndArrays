@@ -54,6 +54,7 @@ public class Person {
                         neuerKurs.addSchueler((Schueler) p);
                     }
                 } else if (p instanceof Lehrer) {
+                    kurseDerPerson[i] = neuerKurs;
                     neuerKurs.addLehrer((Lehrer) p);
                 }
                 break;
