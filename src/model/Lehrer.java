@@ -42,7 +42,28 @@ public class Lehrer extends  Person{
      * Sobald das Array erweitert wurde, muss dem Kurs noch mitgeteilt werden, dass dieser Lehrer den Kurs übernimmt.
      * @param neuerKurs
      */
+    public void addKurs(Kurs neuerKurs, Lehrer l ) {
+        boolean wasBreaked = false;
+        for (int i = 0; i < kurseDerPerson.length; i++) {
+            if (kurseDerPerson[i] == null || kurseDerPerson[i] == neuerKurs) {
+                kurseDerPerson[i] = neuerKurs;
+                neuerKurs.setLehrkraft(l);
+                wasBreaked = true;
+                break;
+            }
+        }
+        if(!wasBreaked){
+            Kurs[] helparray = new Kurs[kurseDerPerson.length + 1];
+            helparray = kurseDerPerson;
 
+            for (int i = 0; i < kurseDerPerson.length; i++) {
+                helparray[i] = kurseDerPerson[i];
+            }
+
+
+            kurseDerPerson = helparray;
+        }
+    }
 
 
     /**
@@ -51,12 +72,27 @@ public class Lehrer extends  Person{
      * Überlegt euch etwas kluges!
      * @param neuesFach
      */
+
     public void addFach(Unterrichtsfach neuesFach){
+        boolean wasBreaked = false;
         for(int i = 0; i < faecherDerLehrkraft.length; i++){
-            if(faecherDerLehrkraft[i] == null){
+            if(faecherDerLehrkraft[i] == null || faecherDerLehrkraft[i] == neuesFach){
                faecherDerLehrkraft[i] = neuesFach;
+                wasBreaked = true;
                break;
             }
+        }
+        if(!wasBreaked){
+            Unterrichtsfach[] helparray = new Unterrichtsfach[faecherDerLehrkraft.length + 1];
+
+            for (int i = 0; i < faecherDerLehrkraft.length; i++) {
+                helparray[i] = faecherDerLehrkraft[i];
+            }
+
+            helparray[helparray.length-1] = neuesFach;
+
+
+            faecherDerLehrkraft = helparray;
         }
     }
 

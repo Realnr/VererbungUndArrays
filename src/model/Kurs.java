@@ -50,25 +50,19 @@ public class Kurs {
     public void addSchueler(Schueler neuerSchueler){
 
         for(int i = 0; i < schuelerDesKurses.length; i++){
-            if(schuelerDesKurses[i] == null){
+            if(schuelerDesKurses[i] == null || schuelerDesKurses[i] == neuerSchueler){
                 schuelerDesKurses[i] = neuerSchueler;
                 break;
+            } else {
+                Schueler[] helparray = new Schueler[schuelerDesKurses.length + 1];
+                helparray = schuelerDesKurses;
+                helparray[helparray.length-1] = neuerSchueler;
+                schuelerDesKurses = helparray;
             }
         }
     }
-    public boolean checkSchulerVorhanden(Schueler neuerSchueler){
-        for(int i = 0; i < schuelerDesKurses.length; i++){
-            if(neuerSchueler == schuelerDesKurses[i]){
-                return true;
-            }
-        }
-        return false;
-    }
-    public void addLehrer(Lehrer lehrer){
-       if(lehrkraft == null){
-           lehrkraft = lehrer;
-       }
-    }
+
+
 
     /**
      * Methode erstellt aus den Informationen zum Kurs (Kursbezeichnung, Fach, Lehrer, Schülernamen) eine kompakte Information

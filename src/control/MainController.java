@@ -97,6 +97,7 @@ public class MainController {
 
         hpBaxter.tadelEinenSchueler(einPaarSchueler[1], new Tadel("Frau Storch wurde beim Dönerkauf beobachtet."));
         hpBaxter.tadelEinenSchueler(einPaarSchueler[4], new Tadel("Tadel wegen schönen Augen."));
+        hpBaxter.tadelEinenSchueler(einPaarSchueler[4], new Tadel("Tadel wegen schönen Augen."));
 
         System.out.println("Kurse Information:");
         for(Kurs k : einPaarKurse) {

@@ -18,7 +18,7 @@ public class Person {
     public Person(String name, int alter) {
         this.name = name;
         this.alter = alter;
-        this.kurseDerPerson = new Kurs[5];
+        this.kurseDerPerson = new Kurs[2];
     }
 
     public String getName() {
@@ -37,30 +37,6 @@ public class Person {
         this.alter = alter;
     }
 
-    /**
-     * Ein Kurs wird der Menge der Kurse hinzugefügt.
-     * Da wir auf der Datenstruktur Array arbeiten und diese eine statische Größe hat, müssen wir tricksen.
-     * Überlegt euch etwas kluges!
-     * @param neuerKurs
-     */
-    public void addKurs(Kurs neuerKurs, Person p) {
-        for (int i = 0; i < kurseDerPerson.length; i++) {
-            if (kurseDerPerson[i] == null) {
-
-                if (p instanceof Schueler ){
-
-                    if(!neuerKurs.checkSchulerVorhanden((Schueler) p)){
-                        kurseDerPerson[i] = neuerKurs;
-                        neuerKurs.addSchueler((Schueler) p);
-                    }
-                } else if (p instanceof Lehrer) {
-                    kurseDerPerson[i] = neuerKurs;
-                    neuerKurs.addLehrer((Lehrer) p);
-                }
-                break;
-            }
-        }
-    }
 
 
     public String getInfo(){
