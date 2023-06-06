@@ -54,7 +54,10 @@ public class Lehrer extends  Person{
         }
         if(!wasBreaked){
             Kurs[] helparray = new Kurs[kurseDerPerson.length + 1];
-            helparray = kurseDerPerson;
+
+            for (int i = 0; i < kurseDerPerson.length; i++) {
+                helparray[i] = kurseDerPerson[i];
+            }
 
             for (int i = 0; i < kurseDerPerson.length; i++) {
                 helparray[i] = kurseDerPerson[i];
