@@ -28,28 +28,10 @@ public class Schueler extends Person{
      * Überlegt euch etwas kluges!
      * @param neuerKurs
      */
-    public void addKurs(Kurs neuerKurs, Schueler s) {
-        boolean wasBreaked = false;
-        for (int i = 0; i < kurseDerPerson.length; i++) {
-            if (kurseDerPerson[i] == null || kurseDerPerson[i] == neuerKurs) {
-                kurseDerPerson[i] = neuerKurs;
-                neuerKurs.addSchueler(s);
-                wasBreaked = true;
-                break;
-            }
-        }
-        if(!wasBreaked){
-            Kurs[] helparray = new Kurs[kurseDerPerson.length + 1];
 
-            for (int i = 0; i < kurseDerPerson.length; i++) {
-                helparray[i] = kurseDerPerson[i];
-            }
-
-            helparray[helparray.length-1] = neuerKurs;
-            neuerKurs.addSchueler(s);
-
-            kurseDerPerson = helparray;
-        }
+    public void addKurs(Kurs neuerKurs) {
+        super.addKurs(neuerKurs);
+        neuerKurs.addSchueler(this);
    }
 
 

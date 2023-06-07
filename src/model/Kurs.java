@@ -48,17 +48,25 @@ public class Kurs {
      * @param neuerSchueler
      */
     public void addSchueler(Schueler neuerSchueler){
-
+        boolean wasBreaked = false;
         for(int i = 0; i < schuelerDesKurses.length; i++){
             if(schuelerDesKurses[i] == null || schuelerDesKurses[i] == neuerSchueler){
                 schuelerDesKurses[i] = neuerSchueler;
+                wasBreaked = true;
                 break;
-            } else {
-                Schueler[] helparray = new Schueler[schuelerDesKurses.length + 1];
-                helparray = schuelerDesKurses;
-                helparray[helparray.length-1] = neuerSchueler;
-                schuelerDesKurses = helparray;
             }
+
+        }
+        if(!wasBreaked){
+            Schueler[] helparray = new Schueler[schuelerDesKurses.length + 1];
+
+            for (int i = 0; i < schuelerDesKurses.length; i++) {
+                helparray[i] = schuelerDesKurses[i];
+            }
+
+            helparray[helparray.length-1] = neuerSchueler;
+
+            schuelerDesKurses = helparray;
         }
     }
 

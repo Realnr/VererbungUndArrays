@@ -42,30 +42,9 @@ public class Lehrer extends  Person{
      * Sobald das Array erweitert wurde, muss dem Kurs noch mitgeteilt werden, dass dieser Lehrer den Kurs übernimmt.
      * @param neuerKurs
      */
-    public void addKurs(Kurs neuerKurs, Lehrer l ) {
-        boolean wasBreaked = false;
-        for (int i = 0; i < kurseDerPerson.length; i++) {
-            if (kurseDerPerson[i] == null || kurseDerPerson[i] == neuerKurs) {
-                kurseDerPerson[i] = neuerKurs;
-                neuerKurs.setLehrkraft(l);
-                wasBreaked = true;
-                break;
-            }
-        }
-        if(!wasBreaked){
-            Kurs[] helparray = new Kurs[kurseDerPerson.length + 1];
-
-            for (int i = 0; i < kurseDerPerson.length; i++) {
-                helparray[i] = kurseDerPerson[i];
-            }
-
-            for (int i = 0; i < kurseDerPerson.length; i++) {
-                helparray[i] = kurseDerPerson[i];
-            }
-
-
-            kurseDerPerson = helparray;
-        }
+    public void addKurs(Kurs neuerKurs) {
+        super.addKurs(neuerKurs);
+        neuerKurs.setLehrkraft(this);
     }
 
 

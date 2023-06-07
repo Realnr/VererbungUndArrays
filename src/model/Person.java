@@ -36,8 +36,27 @@ public class Person {
     public void setAlter(int alter) {
         this.alter = alter;
     }
+    public void addKurs(Kurs neuerKurs) {
+        boolean wasBreaked = false;
+        for (int i = 0; i < kurseDerPerson.length; i++) {
+            if (kurseDerPerson[i] == null || kurseDerPerson[i] == neuerKurs) {
+                kurseDerPerson[i] = neuerKurs;
+                wasBreaked = true;
+                break;
+            }
+        }
+        if (!wasBreaked) {
+            Kurs[] helparray = new Kurs[kurseDerPerson.length + 1];
 
+            for (int i = 0; i < kurseDerPerson.length; i++) {
+                helparray[i] = kurseDerPerson[i];
+            }
 
+            helparray[helparray.length - 1] = neuerKurs;
+
+            kurseDerPerson = helparray;
+        }
+    }
 
     public String getInfo(){
         String info = "";

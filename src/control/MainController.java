@@ -61,7 +61,7 @@ public class MainController {
         for(int j = 0; j < 3; j++){ //Dreimal wird versucht, den SuS einen zufälligen Kurs zuzuweisen.
             for(int i = 0; i < einPaarSchueler.length; i++){
                 int kursnummer = (int)(Math.random()*einPaarKurse.length);  //Ein zufälliger Kurs wird einem Schüler zugewiesen.
-                einPaarSchueler[i].addKurs(einPaarKurse[kursnummer], einPaarSchueler[i]);
+                einPaarSchueler[i].addKurs(einPaarKurse[kursnummer]);
 
             }
         }
@@ -78,14 +78,14 @@ public class MainController {
             einPaarLehrer[i].addFach(informatik);
         }
 
-        einPaarLehrer[0].addKurs(einPaarKurse[0], einPaarLehrer[0]);
-        einPaarLehrer[0].addKurs(einPaarKurse[2], einPaarLehrer[0]);
+        einPaarLehrer[0].addKurs(einPaarKurse[0]);
+        einPaarLehrer[0].addKurs(einPaarKurse[2]);
 
 //        einPaarKurse[2].addLehrer(einPaarLehrer[0]);
 //        einPaarKurse[0].addLehrer(einPaarLehrer[0]);
 
-        einPaarLehrer[1].addKurs(einPaarKurse[1], einPaarLehrer[1]);
-        einPaarLehrer[1].addKurs(einPaarKurse[3], einPaarLehrer[1]);
+        einPaarLehrer[1].addKurs(einPaarKurse[1]);
+        einPaarLehrer[1].addKurs(einPaarKurse[3]);
 
 //        einPaarKurse[1].addLehrer(einPaarLehrer[1]);
 //        einPaarKurse[3].addLehrer(einPaarLehrer[1]);
@@ -93,9 +93,12 @@ public class MainController {
         Schulleiter hpBaxter = new Schulleiter("Herr H.P. Baxter", 49, "A3000");
         hpBaxter.addFach(mathematik);
         hpBaxter.addFach(deutsch);
-        hpBaxter.addKurs(einPaarKurse[4], hpBaxter);
+        hpBaxter.addKurs(einPaarKurse[4]);
 
         hpBaxter.tadelEinenSchueler(einPaarSchueler[1], new Tadel("Frau Storch wurde beim Dönerkauf beobachtet."));
+        hpBaxter.tadelEinenSchueler(einPaarSchueler[4], new Tadel("Tadel wegen schönen Augen."));
+        hpBaxter.tadelEinenSchueler(einPaarSchueler[4], new Tadel("Tadel wegen schönen Augen."));
+        hpBaxter.tadelEinenSchueler(einPaarSchueler[4], new Tadel("Tadel wegen schönen Augen."));
         hpBaxter.tadelEinenSchueler(einPaarSchueler[4], new Tadel("Tadel wegen schönen Augen."));
         hpBaxter.tadelEinenSchueler(einPaarSchueler[4], new Tadel("Tadel wegen schönen Augen."));
 
